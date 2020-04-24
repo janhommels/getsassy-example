@@ -1,0 +1,27 @@
+@use "../variables/colors";
+@use "sass:color" as sass-color;
+@use "../functions";
+
+%btn {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin: 3px;
+
+  &:hover {
+    transform: scale(0.98);
+  }
+}
+
+.btn-primary {
+  @extend %btn;
+  $_background-color: sass-color.adjust(colors.$primary, $lightness: 10%);
+  background-color: $_background-color;
+  color: functions.text-color-with-bg($_background-color);
+}
+
+.btn-secondary {
+  @extend %btn;
+  background-color: colors.$secondary;
+  color: functions.text-color-with-bg(colors.$secondary);
+}

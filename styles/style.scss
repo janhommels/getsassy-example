@@ -1,0 +1,8 @@
+@use "variables/colors" with (
+  $primary: #3d97cb,
+  $secondary: #68ad52,
+  $background: #0b324a
+);
+@use "base";
+@use "components/buttons";
+@use "helper";

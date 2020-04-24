@@ -1,0 +1,11 @@
+$spacings: 1, 2, 3, 4, 5;
+
+@each $spacing in $spacings {
+  .margin-#{$spacing} {
+    margin: #{$spacing * 10}px;
+  }
+
+  .margin-y-#{$spacing} {
+    margin: #{$spacing * 10}px 0;
+  }
+}

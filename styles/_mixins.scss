@@ -1,0 +1,19 @@
+@mixin content-area($margin: 0 auto) {
+  width: 1000px;
+  margin: $margin;
+}
+
+$breakpoints: (
+  "sm": 600px,
+  "md": 1200px,
+  "lg": 1600px,
+);
+@mixin below($bpt) {
+  @each $breakpoint, $px in $breakpoints {
+    @if $breakpoint == $bpt {
+      @media only screen and (max-width: #{$px}) {
+        @content;
+      }
+    }
+  }
+}

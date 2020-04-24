@@ -1,0 +1,72 @@
+@use "variables/variables";
+@use "mixins";
+@use "functions";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: variables.$colors-background;
+  font-family: variables.$fonts-primary;
+  line-height: 1.6;
+
+  a {
+    color: functions.text-color-with-bg(variables.$colors-background);
+  }
+}
+
+nav {
+  display: flex;
+  @include mixins.content-area();
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    height: 50px;
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    li {
+      padding: 0 15px;
+
+      a:hover {
+        color: variables.$colors-secondary;
+      }
+    }
+  }
+}
+
+.container {
+  height: 600px;
+  background-color: variables.$colors-primary;
+  color: functions.text-color-with-bg(variables.$colors-primary);
+
+  @include mixins.below("md") {
+    height: 400px;
+    text-align: center;
+    img {
+      display: none;
+    }
+  }
+
+  &-content {
+    @include mixins.content-area(20px auto);
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 50%;
+    }
+  }
+}
